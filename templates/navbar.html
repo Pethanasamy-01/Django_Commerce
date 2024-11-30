@@ -1,0 +1,31 @@
+<div class="navbar navbar-inverse navbar-fixed-top color well">
+    <div class="container">
+        <div class="navbar-header">
+                <h5 class="navbar-brand"><i class="fa fa-home"> Home</i></h5>
+        </div>
+        <div class="nav navbar-nav navbar-right" style="padding-top: 20px;">
+            {% if request.user.is_authenticated %}
+                 <li><a href="{% url 'All_Products' %}"><i class=" fa fa-bags"> All Products</i></a></li>
+                 <li><a href="{% url 'Wishlist_View' %}"><i class=" fa fa-heart"> Wishlist</i></a></li>
+                 <li><a href="{% url 'User_Profile' %}"><i class="fa fa-user"> Profile</i></a></li>
+
+            {% else %}                     
+                <li><a href="{% url 'Register' %}"><i class=" fa fa-user"> Register  </i></a></li>
+                <li><a href="{% url 'Login' %}"><i class=" fa fa-users"> Login </i></a></li>
+            {% endif %}    
+
+        </div>
+    </div>
+</div>
+<style>
+    .well{
+        height: 80px;
+    }
+    i{
+        color: rgb(151, 58, 58);
+    }
+    a>i:hover{
+        color: black;
+
+    }
+</style>

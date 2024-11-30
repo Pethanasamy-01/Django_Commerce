@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+   {% block content %} 
+    <div class="container mt-5" style="margin-top: 100px;">
+        <h1 class="text-center page-header " style="color: beige;">Wishlist</h1>
+
+        <div class="row">
+            {% for product in products %} 
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <a href=""><img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 250px; height: 200px;"></a>
+                        <div class="card-body">
+                            <h5 class="card-title font-weight-bold"><b>{{ product.name }}</b></h5>
+                            <p class="font-weight-bold">Price: &#8377; {{ product.price }}</p>
+                            <a href="{% url 'Order' pk=product.id %}" class="btn btn-primary">Buy Now</a><a href="{% url 'Wishlist_Remove' product.id %}" class="btn btn-danger pull-right"> Remove Wishlist</a>
+                        </div>
+                    </div>
+                </div> 
+            {% endfor %}
+
+           
+        </div> 
+       
+    </div>    
+    <style>
+        #page{
+            margin-left: 50%;
+            margin-top: 50px;
+           
+        }
+        .card{
+            background-color: rgb(211, 224, 176);
+            margin-bottom: 10px;
+        }
+        .card,.card-body{
+            padding: 6px;
+
+        }
+    </style>
+   {% endblock %} 
+

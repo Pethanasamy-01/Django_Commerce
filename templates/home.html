@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'header.html' %}
+    {% include 'navbar.html' %}
+    {% load static %}
+    <style>
+
+        body{
+            background-image: url('{% static "image/wss.jpg" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%; 
+            width: 100%;
+          
+        }
+
+    </style>
+</head>
+<body>
+    <div id="body-image"></div>
+    
+    {% block content %}
+    <div class="content-container" style=" margin-top: 100px;">
+        <div class="col-md-offset-2 col-md-5">
+            <h1 class="site">
+                Welcome <span id="name">{{user|upper}}</span><br>
+                Buy as <br>
+                <span id="design">You like it <i class="fa fa-heart" style="color: rgb(255, 255, 255);"></i></span> <br>
+                Here.
+            </h1>
+        </div>
+    </div>
+    {% endblock %}
+    <style>
+        .site{
+            
+            margin-top: 10%;
+            font-size: 50px;
+            font-family:'Times New Roman', Times, serif;
+            color: rgb(56, 23, 49);
+        }
+        #design{
+            color: antiquewhite;
+            font-size: 100px;
+        }
+        #name{
+            color: antiquewhite;
+            font-size: 80px;
+        }
+    </style>
+</body>
+</html>

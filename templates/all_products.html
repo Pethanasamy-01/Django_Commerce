@@ -1,0 +1,60 @@
+{% extends 'home.html' %}
+   {% block content %} 
+    <div class="container mt-5" style="margin-top: 100px;">
+        <h1 class="text-center page-header" style="color: beige;">Products</h1>
+        <div class="row">
+
+
+            {% for product in products %} 
+              {% if product %}
+
+               <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <a href="{% url 'Product_Detail' pk=product.pk %}"><img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 250px; height: 200px;"></a>
+                        <div class="card-body">
+                            <h5 class="card-title font-weight-bold"><b>{{ product.name }}</b></h5>
+                            <p class="font-weight-bold">Price:&#8377; {{ product.price }}</p>
+                            <a href="{% url 'Order' pk=product.id %}" class="btn btn-primary">Buy Now</a><a href="{% url 'Wishlist_Product' product.id %}" class="btn btn-danger pull-right">Add Wishlist</a>
+                        </div>
+                    </div>
+                </div> 
+               {% endif %} 
+            {% endfor %}
+
+           
+        </div>    <br>
+        <div id="page">
+            {% if is_paginated %}
+               {% if page_obj.has_previous %}
+                  <a href="?page={{page_obj.previous_page_number}}" class="btn btn-info page-button">Previouse</a>
+               {% endif  %}
+             
+               {% if page_obj.has_next %}
+                  <a href="?page={{page_obj.next_page_number}}" class=" btn btn-success  page-button">Next</a>
+               {% endif  %}
+            {% endif %}
+        </div>
+       
+    </div>    
+    <style>
+        #page{
+            margin-left: 40%;
+            margin-top: 50px;
+            padding-bottom: 50px;
+           
+        }
+        .card{
+            background-color: rgb(211, 224, 176);
+            margin-bottom: 10px;
+        }
+        .card,.card-body{
+            padding: 6px;
+
+        }
+        .page-button{
+            width: 80px;
+            padding: 10px;
+        }
+    </style>
+   {% endblock %} 
+

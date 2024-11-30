@@ -1,0 +1,47 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<div class="container well">
+    <div class="col-md-offset-4 col-md-5 ">
+        <div >
+             <h1 class="page-header text-center  " style="margin-top: 100px;color: antiquewhite;">Login</h1>
+        </div>
+        {% if messages %}
+    {% for message in messages %}
+        {% if "error" in message.tags %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% else %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+        <form action="{% url 'Login' %}" autocomplete="off" method="POST" >
+            {% csrf_token %}
+           <div class="form-group ">
+            {{form.as_p}}
+            <div class="form-group">
+                <input type="submit" class="form-control btn btn-primary" value="Submit">
+            </div>
+           </div> 
+          <span id="log"> you don't have an account? <a href="{% url 'Register' %}" style="color: rgb(0, 0, 0);">Register</a></span>
+        </form>
+
+
+    </div>
+</div>
+<style>
+    #log{
+        color: aliceblue;
+    }
+    label{
+        color: beige;
+    }
+</style>
+
+{% endblock %}

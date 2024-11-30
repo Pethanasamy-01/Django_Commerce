@@ -1,0 +1,52 @@
+{% extends 'home.html' %}
+   {% block content %} 
+    <div class="container mt-5" style="margin-top: 100px;">
+        <h1 class="text-center page-header" style="color: beige;">Product Details</h1>
+
+        <div class="row">
+            
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <a href=""><img src="{{ products.image.url }}" alt="{{ products.name }}" style="width:350px; height: 300px;"></a>
+                        <div class="card-body">
+                            <hr>
+                            <h5 class="card-title font-weight-bold"><b>{{ products.name }}</b></h5>
+                             <p ><b>{{products.description}}</b></p>
+
+                            <p class="font-weight-bold">Price:&#8377; {{ products.price }}</p>
+                            <hr>
+                            <a href="{% url 'Order' pk=products.id %}" class="btn btn-primary form-control">Buy Now</a>
+                        </div>
+                    </div>
+                </div> 
+          
+
+           
+        </div> 
+       
+    </div>    
+    <style>
+        #page{
+            margin-left: 50%;
+            margin-top: 50px;
+           
+        }
+        .card{
+            width: 360px;
+            background-color: rgb(211, 224, 176);
+            margin-bottom: 10px;
+        }
+        .card,.card-body{
+            padding: 6px;
+
+        }
+        textarea{
+            width: 150px;
+            height:80px;
+        }
+        .row{
+            margin-left: 350px;
+        }
+    </style>
+   {% endblock %} 
+
