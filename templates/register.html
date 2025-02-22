@@ -20,8 +20,8 @@
             {% endif %}
         {% endfor %}
     {% endif %}
-    
-        <form action="{% url 'Register' %}" autocomplete="off" method="POST">
+    <div style="background: linear-gradient(rgb(192, 220, 224),hsl(185, 17%, 72%));padding: 20px; border-radius: 10px;">
+        <form action="{% url 'Register' %}" autocomplete="off" method="POST" style="color: black;">
             {% csrf_token %}
            <div class="form-group ">
 
@@ -34,16 +34,9 @@
            <span id="reg">already do you have an account? <a href="{% url 'Login' %}" style="color: black;"> Login</a></span>
         </form>
     </div>
+    
+        
+    </div>
 </div>
-<style>
-    label{
-        color: rgb(255, 255, 255);
-    }
-    span{
-        color: aliceblue;
-    }
-    #reg{
-        color: aliceblue;
-    }
-</style>
+
 {% endblock %}

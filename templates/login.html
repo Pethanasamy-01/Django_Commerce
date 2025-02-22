@@ -21,7 +21,7 @@
     {% endfor %}
 {% endif %}
 
-        <form action="{% url 'Login' %}" autocomplete="off" method="POST" >
+        <form action="{% url 'Login' %}" autocomplete="off" method="POST" style="background: linear-gradient(rgb(150, 179, 184),rgb(127, 138, 139));padding: 20px; border-radius: 10px;">
             {% csrf_token %}
            <div class="form-group ">
             {{form.as_p}}

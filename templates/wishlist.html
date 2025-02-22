@@ -11,7 +11,7 @@
                         <div class="card-body">
                             <h5 class="card-title font-weight-bold"><b>{{ product.name }}</b></h5>
                             <p class="font-weight-bold">Price: &#8377; {{ product.price }}</p>
-                            <a href="{% url 'Order' pk=product.id %}" class="btn btn-primary">Buy Now</a><a href="{% url 'Wishlist_Remove' product.id %}" class="btn btn-danger pull-right"> Remove Wishlist</a>
+                            <a href="{% url 'Order' pk=product.id %}" class="btn btn-primary">Buy Now</a><a href="{% url 'Wishlist_Remove' product.id %}" class="btn btn-danger pull-right"> Remove</a>
                         </div>
                     </div>
                 </div> 
